@@ -1,0 +1,35 @@
+#tierlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #a8a8a8;
+    padding: 1%;
+    margin-bottom: 2%;
+    width: 80vw;
+    height: 35vw;
+    margin-left: 5%;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    height: 25%;
+    background-color: rgb(73, 73, 73);
+    margin-bottom: 1%;
+}
+
+.rowIdent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 12%;
+    background-color: green;
+    font-size: larger;
+}
+
+.rowImage {
+    height: 100%;
+    width: auto;
+}
