@@ -1,4 +1,6 @@
 /.vscode
 package.json
+/RandomEU4Achievement/package.json
+/RandomEU4Achievement/node_modules/
 /RandomEU4Achievement/index.js
 /RandomEU4Achievement/AchievementTable.html

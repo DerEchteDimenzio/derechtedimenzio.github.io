@@ -5,3 +5,12 @@
 table, th, td {
     border: 2px solid black;
 }
+
+button {
+    display: block;
+    margin-bottom: 30px;
+}
+.difficulty {
+    margin-top: 5px;
+    display: inline-block;
+}
