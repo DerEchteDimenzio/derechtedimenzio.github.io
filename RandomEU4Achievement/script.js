@@ -1,11 +1,38 @@
 let allAchievements;
 let achievements;
 let difficulties = [];
+let overlayOn = false;
+let table;
 
 $(function() {
     $.get("./eu4new.json", function(data) {
         allAchievements = data.game.availableGameStats.achievements;
+        let count = 0;
+        table = `<button id=closeOverlay>Close</button><table id="tableA"> <tr>`;
+            allAchievements.forEach((item, index) => {
+                count++;
+                table += `<td class="achievementRow"><img class="aIcon" src="${item.icon}" data-index="${index}" data-isChecked=0> <label>${item.displayName}</label></td>`;
+                if(count == 5) {
+                    count = 0;
+                    table += '</tr><tr>';
+                }
+        });
+        table += "</table>";
+        document.getElementById("overlay").innerHTML += table;
+        let icons = document.getElementsByClassName("aIcon");
+        for(let i = 0; i < icons.length; i++) {
+            icons[i].addEventListener("click", toggleIcon);
+        }
+
+        $("#closeOverlay").click(function() {
+            document.getElementById("overlay").style.display = "none";
+        });
     });
+    
+    
+    $("#achievementPicker").click(function() {
+        document.getElementById("overlay").style.display = "block";
+    })
     $("#randomButton").click(function() {
         let checkCounter = 0;
         achievements = [];
@@ -59,3 +86,13 @@ $(function() {
                         </table>`);
     });
 });
+
+function toggleIcon(event) {
+    if(event.target.getAttribute("data-isChecked") === "0") {
+        event.target.src = allAchievements[parseInt(event.target.getAttribute("data-index"))].icongray;
+        event.target.setAttribute("data-isChecked", "1");
+    } else {
+        event.target.src = allAchievements[parseInt(event.target.getAttribute("data-index"))].icon;
+        event.target.setAttribute("data-isChecked", "0");
+    }
+}
