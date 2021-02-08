@@ -4,7 +4,7 @@ let nick;
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("TestButton").addEventListener("click", sendMessage);
-    client = new Paho.MQTT.Client("wss://broker.hivemq.com", 8000, "ChatClient1234");
+    client = new Paho.MQTT.Client("wss://broker.hivemq.com", "ChatClient" + (Math.random).toString());
     client.onMessageArrived = onMessageArrived;
     client.connect({onSuccess: onConnect});
 });
