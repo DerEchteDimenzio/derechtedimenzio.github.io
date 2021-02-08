@@ -1,0 +1,19 @@
+input {
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 6%;
+}
+
+button {
+    margin-left: 10%;
+}
+
+div {
+    border: 2px solid black;
+    height: 30em;
+    width: 25%;
+    overflow-y: scroll;
+    overflow-x: initial;
+    word-wrap: break-word;
+}
