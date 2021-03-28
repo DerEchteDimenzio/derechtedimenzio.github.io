@@ -13,10 +13,13 @@ function sendClick(event) {
     lines.forEach(element => {
         returnString += printSpace(5 + (15-Math.ceil(element.length/2))) + element + "\n\n";
     });
-    returnString += printSpace(5 + (15-Math.ceil(getHashtagLength(hashtags)/1.5)));
-    hashtags.forEach(hashtag => {
-        returnString += printHashtag(hashtag) + " ";
-    });
+    console.log(hashtags);
+    if(hashtags[0] !== "") {
+        returnString += printSpace(5 + (15-Math.ceil(getHashtagLength(hashtags)/1.5)));
+        hashtags.forEach(hashtag => {
+            returnString += printHashtag(hashtag) + " ";
+        });
+    }
     returnString += "\n" + space;
     document.getElementById("resultBox").value = returnString;
 }
