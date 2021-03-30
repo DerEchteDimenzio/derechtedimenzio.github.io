@@ -6,12 +6,16 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    float: right;
     width: 100%;
 }
 
-li {
+header h3 {
     float: left;
+    display: none;
+}
+
+li {
+    float: right;
 }
 
 li a {
@@ -24,27 +28,58 @@ li a {
 
 header {
     height: 5vh;
-    background-color: #dd0037;
+    background-color: lightgray;
+    display: flex;
 }
 
 li a:hover {
-    background-color: white;
+    background-color: lightblue;
 }
 
 
 main {
-    background-color: cyan;
     height: 60vh;
+    border-style: solid none none none;
+    border-width: 1px;
 }
 
 .pictures {
-    background-color: gainsboro;
     height: 30vh;
     position: relative;
 }
 
 footer {
-    background-color: burlywood;
+    border-style: solid none none none;
+    border-width: 1px;
+}
+
+footer p {
+    float: right;
+    margin-right: 1%;
+}
+
+.fa {
+    padding: 10px;
+    align-self: center;
+    vertical-align: middle;
+    float: right;
+}
+
+.fa-youtube-square {
+    color: red;
+}
+
+.fa-twitter-square {
+    color: blue;
+}
+
+.fa-phone {
+    float: none;
+    padding: 0;
+}
+
+.fa:hover {
+    opacity: 0.7;
 }
 
 .col-1 {width: 8.33%;}
@@ -77,4 +112,52 @@ footer {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
+}
+
+.title {
+    align-self: center;
+    color: black;
+    font-weight: bolder;
+    margin-right: 1%;
+    font-size: larger;
+}
+
+header img {
+    padding: 10px;
+    margin-right: 5px;
+}
+
+.about {
+    height: 60vh;
+    border-style: solid none none solid;
+    border-width: 1px;
+}
+
+.card {
+    height: 80%;
+    width: 36%;
+    margin-top: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: gainsboro;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card img {
+    height: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.text-container h4 {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
+
+.text-container p {
+    text-align: center;
 }
