@@ -87,18 +87,24 @@ header ul li a {
     display: block;
     text-decoration: none;
     color: black;
-    font-weight: bold;
-    padding: 3.5vh;
-    font-size: 2.5vh;
+    padding: 3vh;
+    font-size: 3vh;
+    font-family: "Impact";
 }
 
 header {
     height: 10vh;
     background-color: lightgray;
     display: flex;
-    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    background-color: white;
+    border-bottom: 3px solid black;
 }
 
 header ul li a:hover {
     background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+  }  

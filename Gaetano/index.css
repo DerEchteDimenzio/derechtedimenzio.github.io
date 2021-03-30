@@ -1,6 +1,13 @@
 main {
     height:60vh;
-    background-image: linear-gradient(90deg, #5ee7df 0%, #b490ca 100%);
+    background-color: #3A01DF;
+}
+
+main img {
+    height: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    box-shadow: 5px 5px rgba(0,0,0,0.2);
 }
 
 .pictures {
@@ -15,12 +22,10 @@ main {
 }
 
 .dia-pics {
-    height: 90%;
-    position: absolute;
-    top: 50%;
-    left: 35%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
+    height: 80%;
+    position: relative;
+    margin-top: 3%;
+    margin-left: 20%;
     z-index: 1;
 }
 
@@ -46,7 +51,7 @@ header img {
 
 .about {
     height: 60vh;
-    background-image: linear-gradient(270deg, #5ee7df 0%, #b490ca 100%);
+    background-color: #3A01DF;
 }
 
 .card {
@@ -98,3 +103,34 @@ header img {
 .dia-pics img:nth-child(3){animation-delay: 5s;}
 .dia-pics img:nth-child(2){animation-delay: 10s;}
 .dia-pics img:nth-child(1){animation-delay: 15s;}
+
+.about-text {
+    height: 20vh;
+    background-color: #3A01DF;
+}
+
+.about-text #name {
+    margin-left:1.5%;
+    font-size: 4vh;
+    font-family: Impact;
+    color: white;
+}
+
+.about-text #video-text {
+    margin-left:1.5%;
+    font-size: 3vh;
+    color: white;
+}
+
+.text img {
+    float: left;
+}
+
+.text p {
+    float: left;
+    margin-left: 2%;
+    margin-top: 5%;
+    max-width: 35%;
+    color: white;
+    font-size: 2.5vh;
+}
