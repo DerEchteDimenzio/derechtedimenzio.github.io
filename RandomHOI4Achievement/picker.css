@@ -1,0 +1,58 @@
+#achievement {
+    margin: 50px;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 2;
+    overflow-y: scroll;
+}
+
+table, th, td {
+    border: 2px solid black;
+}
+
+.achievementRow {
+    border: none;
+    width: 7%;
+    padding-top: 2%;
+    padding-left: 5%;
+}
+
+#tableA {
+    border: none;
+}
+
+.achievementRow img {
+    cursor: pointer;
+}
+
+#closeOverlay {
+    margin-top: 2%;
+    margin-left: 35%;
+    width: 25%;
+}
+
+.achievementRow label {
+    font-weight: bold;
+    color: black;
+    position: relative;
+    bottom: 25px;
+}
+
+button {
+    display: block;
+    margin-bottom: 30px;
+}
+.difficulty {
+    margin-top: 5px;
+    display: inline-block;
+}
