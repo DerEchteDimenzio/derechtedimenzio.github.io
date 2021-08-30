@@ -10,7 +10,10 @@
 
         <label>Result</label><br>
         <div id="resultBox"></div><br>
-        <button id="copyBtn">Copy text</button>
+        <button id="copyBtn" data-clipboard-target="#buffer">Copy text</button>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+        <script>new ClipboardJS("#copyBtn")</script>
         <div id="temp"></div>
+        <textarea id="buffer" style="opacity: 0;"></textarea>
     </body>
 </html>

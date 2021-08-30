@@ -21,13 +21,11 @@ function sendClick(event) {
     });
     returnString += nonTrim + "</div>";
     document.getElementById("resultBox").innerHTML = returnString;
+    document.getElementById("buffer").value = document.getElementById("resultBox").innerText;
 }
 
 function copy(event) {
-    let textArea = document.getElementById("resultBox");
-    textArea.select();
-    window.getSelection().removeAllRanges();
-    alert("copied");
+
 } 
 
 function printSpace(amount) {
