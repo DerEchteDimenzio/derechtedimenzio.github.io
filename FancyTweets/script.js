@@ -1,27 +1,26 @@
 
-const space = "⠀";
+const space = String.fromCharCode(0x2001);
+const nonTrim = String.fromCharCode(0x2800);
+let calcDiv;
 
 document.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("sendButton").addEventListener("click", sendClick);
     document.getElementById("copyBtn").addEventListener("click", copy);
+    calcDiv = document.getElementById("temp");
 });
 
 function sendClick(event) {
-    let hashtags = document.getElementById("hashtagField").value.split(",");
     let lines = document.getElementById("textArea").value.split('\n');
-    let returnString = space + "\n";
+    let returnString = space + String.fromCharCode(0x2800) + "<br>";
     lines.forEach(element => {
-        returnString += printSpace(5 + (15-Math.ceil(element.length/2))) + element + "\n\n";
+        calcDiv.innerHTML = element;
+        let width = calcDiv.offsetWidth;
+        let spaces = (123-(width/2))/15;
+        calcDiv.innerHTML = "";
+        returnString +=  "<div class='wrapper'>" + printSpace(spaces) + "<span class='textEl'>" + element + "</span>" + "</div><br>";
     });
-    console.log(hashtags);
-    if(hashtags[0] !== "") {
-        returnString += printSpace(5 + (15-Math.ceil(getHashtagLength(hashtags)/1.5)));
-        hashtags.forEach(hashtag => {
-            returnString += printHashtag(hashtag) + " ";
-        });
-    }
-    returnString += "\n" + space;
-    document.getElementById("resultBox").value = returnString;
+    returnString += nonTrim + "</div>";
+    document.getElementById("resultBox").innerHTML = returnString;
 }
 
 function copy(event) {

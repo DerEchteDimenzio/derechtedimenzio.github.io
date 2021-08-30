@@ -1,13 +1,22 @@
+@font-face {
+    font-family: "chripRegular";
+    src: url(chirp-regular.woff);
+}
+
 #resultBox {
     border: 1px solid black;
-    width: 50%;
-    height: 200px;
+    width: 498px;
+    height: fit-content;
+    min-height: 100px;
     margin-top: 10px;
+    font-family: "chripRegular", Arial, Helvetica, sans-serif;
+    font-size: "15px";
+    font-weight: 400;
 }
 
 #textArea {
     height: 80px;
-    width: 250px;
+    width: 498px;
 }
 
 label {
@@ -17,4 +26,21 @@ label {
 button {
     margin-top: 5px;
     margin-bottom: 1%;
+}
+
+.textEl {
+    font-family: "chripRegular"
+}
+
+.wrapper {
+    width: fit-content;
+    height: fit-content;
+}
+
+#temp {
+    height: fit-content;
+    width: fit-content;
+    font-family: "chirpRegular";
+    font-size: 15px;
+    font-weight: 400;
 }
