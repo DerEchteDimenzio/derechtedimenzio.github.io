@@ -1,0 +1,75 @@
+html {
+    height: 100%;
+}
+
+#btSend {
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-left: 3.8vw;
+    background-color: rgb(89, 212, 89);
+    font-weight: bold;
+    padding: 8px;
+}
+
+.sourceCard {
+    background-color: #e2dede;
+    width: 50vw;
+    height: 18vh;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    border: 1px solid #00000056;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.519);
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.cardLeft {
+    height: 100%;
+    width: 30%;
+    border-right: 2px solid black;
+    float: left;
+    justify-content: center;
+}
+
+.cardRight {
+    height: 100%;
+    width: 70%;
+    float: left;
+    position: absolute;
+}
+
+.cardLeft img {
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cardRight h3 {
+    width: 30%;
+    word-wrap: break-word;
+    margin-left: 33%;
+}
+
+.cardRight p {
+    width: 40%;
+    text-overflow: clip;
+    margin-left: 33%;
+    font-weight: bold;
+}
+
+.cardRight a {
+    width: 40%;
+    text-overflow: clip;
+    margin-left: 40%;
+    font-weight: bold;
+}
+
+.cardRight button {
+    width: 20%;
+    text-overflow: clip;
+    margin-left: 47%;
+    margin-top: 5%;
+    font-weight: bold;
+    border-radius: 7px;
+}
