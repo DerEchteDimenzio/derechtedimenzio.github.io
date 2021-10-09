@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let str = tweet.replace(":name:", "Mario");
         console.log(str.replace(":url:", "example.com"))
     })*/
-
+    let key = localStorage.getItem("apiKey");
+    if(key) {
+        document.getElementById("apiKey").value = key;
+    }
     new ClipboardJS(".copyBtn");
 });
 
@@ -27,8 +30,19 @@ function sendButton() {
         makeRequest(key, url, 10).then((res) => {
             res.json().then(data => {
                 console.log(data)
-                let response = JSON.parse(data.contents).results;
-                console.log(response);
+                let content = JSON.parse(data.contents);
+                if(content.header.status === -1 || content.header.status === -3) {
+                    let toast = Toastify({
+                        text:"Invalid SauceNAO Api key or invalid picture link",
+                        duration: 5000
+                    });
+                
+                    toast.showToast();
+                
+                    return;
+                }
+                let response = content.results;
+                localStorage.setItem("apiKey", key);
                 response = response.filter(r => r.data.ext_urls);
                 response = response.sort((a, b) => b.header.similarity - a.header.similarity);
                 response = response.splice(0, 3);
@@ -98,4 +112,3 @@ function buildCard(result) {
 
     document.getElementById("cardCont").appendChild(cardRoot);
 }
-
