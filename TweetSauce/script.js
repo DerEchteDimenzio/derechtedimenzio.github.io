@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btSend").addEventListener("click", sendButton);
-    /*document.getElementById("tweetBt1").addEventListener("click", () => {
-        let str = tweet.replace(":name:", "Mario");
-        console.log(str.replace(":url:", "example.com"))
-    })*/
     let key = localStorage.getItem("apiKey");
     if(key) {
         document.getElementById("apiKey").value = key;
