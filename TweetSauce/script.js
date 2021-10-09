@@ -30,7 +30,7 @@ function sendButton() {
                 if(content.header.status === -1 || content.header.status === -3) {
                     let toast = Toastify({
                         text:"Invalid SauceNAO Api key or invalid picture link",
-                        duration: 5000
+                        duration: 5500
                     });
                 
                     toast.showToast();
