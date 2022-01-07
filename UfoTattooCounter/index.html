@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Loading...</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="index.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1 class="counter">You still need this many missions: </h1>
+        <button class="btn btn-lg btn-danger but" id="add">+ 1</button>
+        <button class="btn btn-lg btn-success" id="del">- 1</button>
+
+        <script>
+
+            function setTitle() {
+                let count = Number(localStorage.getItem("ufoCount"));
+                document.title = `${count} remaining`;
+            }
+
+            function manipulateCount(by) {
+                let count = Number(localStorage.getItem("ufoCount"));
+                count += by;
+                localStorage.setItem("ufoCount", count);
+                document.getElementsByClassName("counter")[0].innerHTML = `You still need ${count} more.`;
+                setTitle();
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+
+                if(localStorage.getItem("ufoCount") === null) {
+                    localStorage.setItem("ufoCount", 600);
+                    let count = 600;
+                    document.getElementsByClassName("counter")[0].innerHTML = `You still need ${count} more.`;
+                    setTitle();
+                } else {
+                    let count = Number(localStorage.getItem("ufoCount"));
+                    document.getElementsByClassName("counter")[0].innerHTML = `You still need ${count} more.`;
+                    setTitle();
+                }
+
+                document.getElementById("add").addEventListener("click", () => manipulateCount(1));
+                document.getElementById("del").addEventListener("click", () => manipulateCount(-1));
+            });
+        </script>
+    </body>
+</html>
