@@ -48,7 +48,7 @@
             const clientId = 'mqttjs_' + Math.random().toString(16).substr(2, 8);
             path = path + document.getElementById("tb_room").value;
 
-            const host = 'ws://broker.emqx.io:8083/mqtt'
+            const host = 'wss://broker.emqx.io:8084/mqtt'
 
             const options = {
                 keepalive: 60,
