@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RP Dice</title>
+    <script src="https://unpkg.com/mqtt@4.3.4/dist/mqtt.min.js"></script>
+</head>
+
+<body>
+    <label>Room</label><br>
+    <input id="tb_room">
+    <button id="bt_connect">Connect</button><br>
+    <label>Number of Sides</label><br>
+    <input id="tb_sides"><br>
+    <button id="bt_roll">Roll</button><br>
+    <label id="lb_result"></label>
+
+    <script>
+
+        let isConnected = false;
+        let path = "cheese/rpdice/";
+        let client = null;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("bt_roll").addEventListener("click", (e) => {
+                if(isConnected) {
+                    let sides = Number(document.getElementById("tb_sides").value);
+                    let roll = { sides: sides, value: getRandomInt(1, sides + 1) }
+                    console.log(client);
+                    client.publish(path, JSON.stringify(roll));
+                } else {
+                    document.getElementById("lb_result").innerHTML = `Must connect first!`;
+                }
+            });
+
+            document.getElementById("bt_connect").addEventListener("click", (e) => {
+                connect();
+            });
+        });
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function connect() {
+            const clientId = 'mqttjs_' + Math.random().toString(16).substr(2, 8);
+            path = path + document.getElementById("tb_room").value;
+
+            const host = 'ws://broker.emqx.io:8083/mqtt'
+
+            const options = {
+                keepalive: 60,
+                clientId: clientId,
+                protocolId: 'MQTT',
+                protocolVersion: 4,
+                clean: true,
+                reconnectPeriod: 1000,
+                connectTimeout: 30 * 1000,
+                will: {
+                    topic: 'WillMsg',
+                    payload: 'Connection Closed abnormally..!',
+                    qos: 0,
+                    retain: false
+                },
+            }
+
+            console.log('Connecting mqtt client')
+            client = mqtt.connect(host, options)
+
+            client.on('error', (err) => {
+                console.log('Connection error: ', err)
+                client.end()
+            })
+
+            client.on('connect', function (connack) {
+                console.log('Connected');
+                isConnected = true;
+            })
+
+            client.on('reconnect', () => {
+                console.log('Reconnecting...')
+            })
+
+            client.on("message", (topic, message) => {
+                let roll = JSON.parse(message.toString());
+                document.getElementById("lb_result").innerHTML = `Rolled a ${roll.value} with a D${roll.sides}`;
+            });
+
+            client.subscribe(path, (topic, message) => {
+                console.log(message);
+            });
+        }
+    </script>
+</body>
+
+</html>
