@@ -17,7 +17,7 @@ body {
     position: absolute;
     font-size: 18px;
     margin-left: 82vw;
-    margin-top: 95vh;
+    margin-top: 90vh;
 }
 
 .btn-play {
@@ -27,7 +27,7 @@ body {
     position: absolute;
     font-size: larger;
     margin-left: 82vw;
-    margin-top: 90vh;
+    margin-top: 85vh;
 }
 
 .inpCode {
@@ -37,6 +37,6 @@ body {
     position: absolute;
     font-size: larger;
     margin-left: 82vw;
-    margin-top: 85vh;
+    margin-top: 80vh;
     font-weight: bold;
 }
