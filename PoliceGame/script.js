@@ -8,6 +8,7 @@ const hexagon1 = [
 ]
 
 const difficulties = [20, 15, 10, 8, 5, 3, 2];
+const TIMER = 300;
 
 let lastCords = {
     lat: undefined,
@@ -101,13 +102,13 @@ function drawPolygon(difficulty) {
 }
 
 function startGame() {
-    let countdown = 5;
+    let countdown = TIMER;
     let difficulty = 0;
     playing = true;
     setInterval(() => {
         countdown--;
         if (countdown === 0 && difficulty < difficulties.length) {
-            countdown = 5;
+            countdown = TIMER;
             drawPolygon(difficulties[difficulty]);
             difficulty++;
         }
